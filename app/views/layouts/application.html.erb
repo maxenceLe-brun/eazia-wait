@@ -1,16 +1,87 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>EaziaWait</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>EazIA</title>
+    <link href="https://fonts.cdnfonts.com/css/brasika-display-trial" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/glacial-indifference-2" rel="stylesheet">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <style>
+      @import url('https://fonts.cdnfonts.com/css/brasika-display-trial');
+      @import url('https://fonts.cdnfonts.com/css/glacial-indifference-2');
+	  </style>
   </head>
 
   <body>
-    <%= yield %>
+    <div class="blue1">
+      <p class="text">Ouverture officielle dans...<div class="text size" id="countdown"></div></p>
+    </div>
+
+    <div class="pink1">
+      <p class="text"><br>le Jeudi 2 Novembre<br>11H00</p>
+    </div>
+
+    <a href="https://forms.gle/ybLi81QjUhTHjPAy9"><div id="hover" onmouseover="onhover()" onmouseout="notonhover()" class="pink2">
+      <p class="text">cliquez ici pour<br>bénéficier de notre offre<br>"early adopter" !</p>
+    </div>
+    </a>
+
+    <div class="green">
+      <p class="text"><b>Générateur</b> de contenu automatisé par <b>intelligence<br>artificielle</b> pour vos <b>réseaux sociaux</b></p>
+    </div>
+
+    <div class="blue2">
+    </div>
+    <img class="arrow1" src="https://media-public.canva.com/WwxKw/MAFCI2WwxKw/1/t.png">
+    <img class="arrow2" src="https://media-public.canva.com/mKROw/MAFCI9mKROw/1/t.png">
+    <a href="https://www.facebook.com/profile.php?id=61552124876947&mibextid=ZbWKwL"><img class="logo1" src="https://cdn.discordapp.com/attachments/370646678102867969/1159037754026512425/image_2023-10-04_100107833.png"></a>
+    <a href="https://instagram.com/eaz.ia_?igshid=OGQ5ZDc2ODk2ZA=="><img class="logo2" src="https://cdn.discordapp.com/attachments/370646678102867969/1159037754311704646/image_2023-10-04_100050896.png"></a>
+    <a href="https://www.linkedin.com/in/anaïs-bremand/"><img class="logo3" src="https://cdn.discordapp.com/attachments/370646678102867969/1159037754626297856/image_2023-10-04_100128699.png"></a>
+
+    <script>
+      CountDownTimer('11/02/2023 10:00 AM', 'countdown');
+      function CountDownTimer(dt, id)
+      {
+          var end = new Date(dt);
+          var sec = 1000;
+          var min = sec * 60;
+          var hour = min * 60;
+          var day = hour * 24;
+          var timer;
+          function showRemaining() {
+              var now = new Date();
+              var distance = end - now;
+              if (distance < 0) {
+                  clearInterval(timer);
+                  document.getElementById(id).innerHTML = 'EXPIRED!';
+                  return;
+              }
+              var days = Math.floor(distance / day);
+              var hours = Math.floor((distance % day) / hour);
+              var minutes = Math.floor((distance % hour) / min);
+              var seconds = Math.floor((distance % min) / sec);
+
+              document.getElementById(id).innerHTML = days + 'jours ';
+              document.getElementById(id).innerHTML += hours + 'heures ';
+              document.getElementById(id).innerHTML += minutes + 'min ';
+              document.getElementById(id).innerHTML += seconds + 'sec ';
+          }
+
+          timer = setInterval(showRemaining, 1000);
+      }
+      function onhover(){
+          var element = document.getElementById("hover");
+          element.style.backgroundColor = "#A5F3AD";
+      }
+      function notonhover(){
+          var element = document.getElementById("hover");
+          element.style.backgroundColor = "#FDAEEE";
+      }
+    </script>
   </body>
 </html>
